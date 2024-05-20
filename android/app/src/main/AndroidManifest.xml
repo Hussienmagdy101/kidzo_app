@@ -8,7 +8,8 @@
         tools:ignore="ProtectedPermissions" />
        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
        <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
-        <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"/>
+        <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"
+            tools:ignore="ProtectedPermissions" />
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
         <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -21,6 +22,20 @@
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCmrQ8CfaaPUDX3Ufip3xEeOu93Sv3Fmwg"/>
+
+         <receiver android:name="device.policy.manager.DeviceAdmin"
+             android:exported="true"
+             android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin" android:resource="@xml/policies" />
+             <intent-filter android:exported="true">
+          <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+          <action android:name="android.app.action.ACTION_DEVICE_ADMIN_DISABLE_REQUESTED" />
+          <action android:name="android.app.action.ACTION_DEVICE_ADMIN_DISABLED" />
+        </intent-filter>
+        </receiver>
+           
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -47,6 +62,11 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+    
+       
+         <service android:name="flutter.overlay.window.flutter_overlay_window.OverlayService" android:exported="false" />
+           
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and

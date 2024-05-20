@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kidzo_app/Screens/Appli/home.dart';
+import 'package:kidzo_app/Screens/App/home.dart';
+
 
 
 

@@ -1,17 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:kidzo_app/Re-usable_Component/print.dart';
-import 'package:kidzo_app/Screens/packages/backGroundServices.dart';
-import 'package:kidzo_app/Screens/parent_login/components/logincheck.dart';
-import 'package:kidzo_app/constant.dart';
+import 'package:kidzo_app/Screens/packages/background_Services.dart';
+import 'package:kidzo_app/Screens/widget/logincheck.dart';
+import 'package:kidzo_app/widget/constant.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FlutterBackgroundService.initialize(onStart: () {
-    startMonitoringService();
-  });
+  await initializeService();
+  
+
 // hi
   await Firebase.initializeApp(
       options: const FirebaseOptions(

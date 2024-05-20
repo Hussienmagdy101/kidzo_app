@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_window/flutter_overlay_window.dart';
 import 'package:kidzo_app/Re-usable_Component/commonbutton.dart';
-import 'package:kidzo_app/Screens/child_login/child_login.dart';
-import 'package:kidzo_app/Screens/parent_login/parent_login.dart';
+import 'package:kidzo_app/Screens/Child/child_login.dart';
+import 'package:kidzo_app/Screens/Parent/parent_login.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:usage_stats/usage_stats.dart';
 
@@ -32,9 +32,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       Permission permission, BuildContext context) async {
     final Status = await permission.request();
     if (Status == true) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('Access Garented')));
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('Access Denied')));
     }

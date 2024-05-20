@@ -1,4 +1,4 @@
-import 'package:kidzo_app/Screens/parent_login/login_imports.dart';
+import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 Future<void> checkPermission(
